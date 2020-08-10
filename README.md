@@ -11,15 +11,7 @@ My requirements for the rain particle system were as follows:
  - Some expected particle system attributes like how the particles are emitted,  how many are emitted, how frequently, duration of their lifetime etc.
  - The particles should resemble rain drops. Hyper-realism wasn't necessary.
 
-Here's the final A-Frame scene that I created:
-<div class="glitch-embed-wrap" style="width: 100%;">
-  <iframe
-    src="https://glitch.com/embed/#!/embed/ajar-successful-germanium?path=index.html&previewSize=100"
-    title="A look at the final rain system on Glitch"
-    allow="geolocation; microphone; camera; midi; vr; encrypted-media"
-    style="height: 100%; width: 100%; border: 0;">
-  </iframe>
-</div>
+Here's a link to the [glitch project](https://ajar-successful-germanium.glitch.me)
 
 ## Creating particles that looked like rain drops
 
@@ -231,14 +223,6 @@ This just requires adding the `"particles"`component to an entity in the scene. 
 `restitution` is an attribute of the physics component from the [aframe-physics-system](https://github.com/donmccurdy/aframe-physics-system) package. It determines how much a dynamic body will bounce on collision. The closer it is to zero, the more the damping. I set it to 0.15 since it felt close to how much a rain drop would bounce on the ground. I couldn't spent some more time figuring out how to make this variable based on the material of the colliding objects (maybe I could get colliding raindrops to stick that way).
 
 ## The final A-Frame scene (once again) and limitations
-<div class="glitch-embed-wrap" style="width: 100%;">
-  <iframe
-    src="https://glitch.com/embed/#!/embed/ajar-successful-germanium?path=index.html&previewSize=100"
-    title="A look at the final rain system on Glitch"
-    allow="geolocation; microphone; camera; midi; vr; encrypted-media"
-    style="height: 100%; width: 100%; border: 0;">
-  </iframe>
-</div>
 
 The attributes of the components can be tweaked to create other kinds of particle systems (e.g. snow, dust, ...). However, there are many limitations to the code as is. Adding the trail and real-time collisions seems to be a very resource intensive process for the browser. So, the number of particles I could simulate at a time and the length of the trail were constrained to allow for smooth, quick simulation. There are other issues with collision involving fast-moving bodies and extremely thin bodies. So, for example, if you have a mesh object you've generated using photogrammetry that you would like to simulate the flow of water on, most of the rain particles might just slip through the mesh instead of interacting with it. The same thing happens even for the simple plane in the linked [glitch example](https://ajar-successful-germanium.glitch.me). This is a known issue with the [aframe-physics-system](https://github.com/donmccurdy/aframe-physics-system) package that has been referenced in their [github issue](https://github.com/schteppe/cannon.js/issues/202). It shouldn't be too much of a problem with other solid objects like cubes, spheres, etc. Visually, my rain particles could use some splash animation, and a rain texture to make them look more appealing.
 
