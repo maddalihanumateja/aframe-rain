@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+    <script src="https://raw.githubusercontent.com/schteppe/cannon.js/master/build/cannon.min.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="https://unpkg.com/aframe-physics-extras@0.1.2/dist/aframe-physics-extras.min.js"></script>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <a-scene background="color: black" physics="restitution:0.15;">
+      <a-assets> </a-assets>
+      <a-sphere position="0 10 -10" color="black" radius="0.04" particles>
+      </a-sphere>
+      <a-plane
+        height="10"
+        width="10"
+        rotation="-90 0 0"
+        position="0 -1 -10"
+        color="#FF0000"
+        static-body
+      ></a-plane>
+      <a-entity id="rig" position="0 1.6 0">
+        <a-camera id="camera"></a-camera>
+      </a-entity>
+    </a-scene>
+    
+  </body>
+</html>
